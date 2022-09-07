@@ -11,7 +11,6 @@ FROM paddlepaddle/paddle:2.3.2 as runtime
 #编译中拷贝文件
 COPY --from=builder /tmp/serving-cpu-avx-mkl-0.9.0 /opt/serving
 
-
 #声明
 ENV SERVING_BIN=/opt/serving/serving
 
@@ -25,5 +24,6 @@ RUN pip install -r /infer/requirements.txt
 # 工作目录
 WORKDIR /Serving 
 
+
 # 运行服务
-CMD ["python","/bin/bash"]
+CMD ["python","-m","paddle_serving_server.serve","--model","serving_server","--port","9393"]

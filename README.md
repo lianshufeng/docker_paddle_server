@@ -5,20 +5,14 @@
 #cpu
 docker run --rm -it -v $(pwd):/Serving hkccr.ccs.tencentyun.com/hula/paddle_serving /bin/bash
 ````
-
-- tmp
+- windws
 ````shell
-cd /tmp
-wget https://paddle-serving.bj.bcebos.com/test-dev/bin/serving-cpu-avx-mkl-0.9.0.tar.gz -O /tmp/serving-cpu-avx-mkl-0.9.0.tar.gz
-tar -xvzf serving-cpu-avx-mkl-0.9.0.tar.gz
-
-export SERVING_BIN=/tmp/serving-cpu-avx-mkl-0.9.0/serving
-
-
-python3 -m paddle_serving_server.serve --model serving_server --port 9393
+powershell -c "docker run --rm -it -v ${pwd}:/Serving hkccr.ccs.tencentyun.com/hula/paddle_serving /bin/bash"
+````
 
 
 
-
-export SERVING_BIN=$PWD/serving-gpu-cuda11-0.0.0/serving
+- cmd
+````shell
+python -m paddle_serving_server.serve --model serving_server --port 9393
 ````

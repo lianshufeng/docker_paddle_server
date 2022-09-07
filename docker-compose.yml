@@ -1,12 +1,11 @@
 version: "3"
 
 services:
-  infer:
-    image: lianshufeng/paddlex_inference
+  paddle_serving:
+    image: lianshufeng/paddle_serving
     volumes:
-      - "./log:/infer/log"
-      - "./inference_model:/infer/inference_model"
+      - "./inference_model:/Serving"
     ports:
-      - "9999:8888"
-    container_name: infer
+      - "9292:9292"
+    container_name: paddle_serving
     restart: always
