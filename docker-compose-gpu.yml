@@ -2,14 +2,14 @@ version: "3"
 
 services:
   infer:
-    image: lianshufeng/paddlex_inference:gpu
+    image: lianshufeng/paddle_serving:gpu
     volumes:
-      - "./log:/infer/log"
-      - "./inference_model:/infer/inference_model"
+      - "./inference_model:/Serving"
     ports:
       - "9999:8888"
     container_name: infer
     restart: always
+    command: python -m paddle_serving_server.serve --model serving_server
     deploy:
       resources:
         reservations:

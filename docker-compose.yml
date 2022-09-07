@@ -9,3 +9,4 @@ services:
       - "9292:9292"
     container_name: paddle_serving
     restart: always
+    command: python -m paddle_serving_server.serve --model serving_server
