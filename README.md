@@ -8,6 +8,9 @@ docker run --rm -it -v $(pwd):/Serving hkccr.ccs.tencentyun.com/hula/paddle_serv
 - windws
 ````shell
 powershell -c "docker run --rm -it -v ${pwd}:/Serving hkccr.ccs.tencentyun.com/hula/paddle_serving /bin/bash"
+
+#GPU
+powershell -c "docker run --rm -it -v ${pwd}:/Serving lianshufeng/paddle_serving:gpu /bin/bash"
 ````
 
 

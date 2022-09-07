@@ -6,7 +6,7 @@ services:
     volumes:
       - "./inference_model:/Serving"
     ports:
-      - "9292:9292"
+      - "9393:9393"
     container_name: paddle_serving
     restart: always
     command: python -m paddle_serving_server.serve --model serving_server

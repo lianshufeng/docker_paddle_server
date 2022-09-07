@@ -5,11 +5,20 @@ MAINTAINER lianshufeng <251708339@qq.com>
 RUN wget https://paddle-serving.bj.bcebos.com/test-dev/bin/serving-gpu-112-0.7.0.tar.gz -O /tmp/servin.tar.gz
 RUN cd /tmp/ ; tar -xvzf /tmp/servin.tar.gz
 
+#https://github.com/PaddlePaddle/Serving/blob/v0.9.0/tools/paddle_env_install.sh
+RUN wget https://paddle-ci.gz.bcebos.com/TRT/TensorRT-8.0.3.4.Linux.x86_64-gnu.cuda-11.3.cudnn8.2.tar.gz --no-check-certificate
+RUN tar -zxf TensorRT-8.0.3.4.Linux.x86_64-gnu.cuda-11.3.cudnn8.2.tar.gz -C /usr/local
+# cp -rf /usr/local/TensorRT-8.0.3.4/include/* /usr/include/ && cp -rf /usr/local/TensorRT-8.0.3.4/lib/* /usr/lib/
 
 FROM paddlepaddle/paddle:2.3.2-gpu-cuda11.2-cudnn8 as runtime
 
-#编译中拷贝文件
+#serving-gpu
 COPY --from=builder /tmp/serving-gpu-112-0.7.0 /opt/serving
+#TensorRT
+COPY --from=builder /usr/local/TensorRT-8.0.3.4/include/ /usr/include/
+COPY --from=builder /usr/local/TensorRT-8.0.3.4/lib/ /usr/lib/
+
+
 
 #声明
 ENV SERVING_BIN=/opt/serving/serving
