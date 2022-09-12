@@ -1,2 +1,2 @@
 paddle-serving-client
-paddle-serving-server-gpu==0.7.0.post112
+paddle-serving-server-gpu==0.9.0.post112
