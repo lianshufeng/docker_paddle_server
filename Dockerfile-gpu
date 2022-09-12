@@ -14,7 +14,7 @@ RUN tar -zxf TensorRT-8.0.3.4.Linux.x86_64-gnu.cuda-11.3.cudnn8.2.tar.gz -C /usr
 FROM paddlepaddle/paddle:2.3.2-gpu-cuda11.2-cudnn8 as runtime
 
 #serving-gpu
-COPY --from=builder /tmp/serving-gpu-112-0.7.0 /opt/serving
+COPY --from=builder /tmp/serving-gpu-112-0.9.0 /opt/serving
 #TensorRT
 COPY --from=builder /usr/local/TensorRT-8.0.3.4/include/ /usr/include/
 COPY --from=builder /usr/local/TensorRT-8.0.3.4/lib/ /usr/lib/
