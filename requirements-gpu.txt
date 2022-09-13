@@ -3,7 +3,7 @@ paddle_serving_app
 paddle-serving-client
 paddle-serving-server-gpu==0.9.0.post112
 
-
+# python/requirements.txt
 numpy>=1.12, <=1.16.4 ; python_version<"3.5"
 numpy<=1.19.4 ; platform_machine ==  "aarch64"
 shapely==1.8.0
