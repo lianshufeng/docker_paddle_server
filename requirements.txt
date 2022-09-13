@@ -1,3 +1,4 @@
 opencv-python
+paddle_serving_app
 paddle-serving-client
 paddle-serving-server
