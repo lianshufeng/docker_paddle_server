@@ -37,4 +37,4 @@ WORKDIR /Serving
 
 
 # 运行服务
-CMD ["python","-m","paddle_serving_server.serve","--model","serving_server","--port","9393"]
+CMD ["python","-m","paddle_serving_server.serve","--model","serving_server","--port","9393","--gpu_ids","0"]
